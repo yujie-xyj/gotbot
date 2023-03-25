@@ -2,8 +2,6 @@
 
 import axios, { AxiosResponse } from 'axios'
 import {
-    config,
-    Wechaty,
     log,
     ScanStatus, 
     WechatyBuilder,
@@ -21,9 +19,11 @@ async function onMessage(message: Message) {
         }
 
         var realMessage = getMessage(content);
-        if (realMessage === "ding"){
-          await message.say("dong")
-        }
+        getGPTMessage(realMessage).then(async (data) => {
+          var resp: string = data.toString()
+          await message.say(resp)
+        })
+        
     } catch (e) {
         console.error(e)
     }
