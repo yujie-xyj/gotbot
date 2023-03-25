@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/0a577e25-5403-43ae-b1d5-ca2ea06f3d33/resourceGroups/hunlingpt_group/providers/Microsoft.Web/sites/huanlingpt",
+    "appService.deploySubpath": "."
+}
