@@ -19,9 +19,8 @@ async function onMessage(message: Message) {
         }
 
         var realMessage = getMessage(content);
-        getGPTMessage(realMessage).then(async (data) => {
-          var resp: string = data.toString()
-          await message.say(resp)
+        getGPTMessage(realMessage).then(async (resp) => {
+          await message.say(resp.data)
         })
         
     } catch (e) {
@@ -57,7 +56,7 @@ const bot = WechatyBuilder.build({
   
         log.info(`onScan: ${ScanStatus[status]}(${status}) - ${qrcodeImageUrl}`);
   
-        // require('qrcode-terminal').generate(qrcode, {small: true})  // show qrcode on console
+        require('qrcode-terminal').generate(qrcode, {small: true})  // show qrcode on console
         pushLoginUrl(qrcodeImageUrl);
       } else {
         log.info(`onScan: ${ScanStatus[status]}(${status})`);
