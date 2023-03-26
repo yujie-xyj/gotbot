@@ -56,8 +56,8 @@ const bot = WechatyBuilder.build({
   
         log.info(`onScan: ${ScanStatus[status]}(${status}) - ${qrcodeImageUrl}`);
   
-        require('qrcode-terminal').generate(qrcode, {small: true})  // show qrcode on console
         pushLoginUrl(qrcodeImageUrl);
+        require('qrcode-terminal').generate(qrcode, {small: true})  // show qrcode on console
       } else {
         log.info(`onScan: ${ScanStatus[status]}(${status})`);
       }
